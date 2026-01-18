@@ -1,0 +1,28 @@
+
+# Python/OS artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.DS_Store
+.ipynb_checkpoints/
+build/
+dist/
+*.egg-info/
+
+# Notebooks
+*.ipynb
+
+# Legacy Scripts / Old Function Codes
+CyTOFHelper.py
+CyTOFNorm_MultiD.py
+PermCell_Smooth.py
+ROC.py
+TestHet.py
+cytof_transform.py
+refactor_notebook.py
+
+# Data/Plots (assuming these might be in the folder)
+Data/
+Plots/
+InteractiveClusterLabeler.py
