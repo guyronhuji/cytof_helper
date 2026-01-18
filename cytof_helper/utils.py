@@ -4,7 +4,7 @@ import numpy as np
 from typing import Tuple, List, Optional
 import os
 
-def get_markers(marker_list: List[str], base_dir: str = "/Users/ronguy/") -> Tuple[List[str], List[str], List[str], List[str], List[str]]:
+def get_markers(marker_list: List[str], marker_file: Optional[str] = None, base_dir: str = "/Users/ronguy/") -> Tuple[List[str], List[str], List[str], List[str], List[str]]:
     """
     Categorize markers based on a reference Excel file.
     
@@ -12,8 +12,11 @@ def get_markers(marker_list: List[str], base_dir: str = "/Users/ronguy/") -> Tup
     ----------
     marker_list : list of str
         List of marker names to categorize.
-    base_dir : str
-        Base directory containing 'Dropbox/Work/CyTOF/Markers_Names.xlsx'.
+    marker_file : str, optional
+        Full path to the marker Excel file. If provided, overrides base_dir/default path.
+    base_dir : str, optional
+        Base directory containing 'Dropbox/Work/CyTOF/Markers_Names.xlsx'. 
+        Used only if marker_file is None.
         
     Returns
     -------
@@ -34,7 +37,10 @@ def get_markers(marker_list: List[str], base_dir: str = "/Users/ronguy/") -> Tup
     cell_iden = []
     cell_cycle = []
     
-    file_path = os.path.join(base_dir, "Dropbox/Work/CyTOF/Markers_Names.xlsx")
+    if marker_file:
+        file_path = marker_file
+    else:
+        file_path = os.path.join(base_dir, "Dropbox/Work/CyTOF/Markers_Names.xlsx")
     
     try:
         markers_df = pd.read_excel(file_path)

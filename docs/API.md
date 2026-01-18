@@ -229,9 +229,11 @@ Performs Gaussian smoothing of marker expression data using spatial/UMAP coordin
 
 ### `get_markers`
 ```python
-def get_markers(marker_list: List[str], base_dir: str) -> Tuple
+def get_markers(marker_list: List[str], marker_file: Optional[str] = None, base_dir: str = "/Users/ronguy/") -> Tuple
 ```
 Categorizes a list of markers into (All, Epigenetic, Normalization, Cell Identity, Cell Cycle) using a reference file.
+- **marker_file**: Optional path to the marker Excel file. If provided, overrides default location.
+
 
 ### `gate_cells`
 ```python
